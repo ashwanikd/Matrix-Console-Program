@@ -24,6 +24,7 @@ public class Main {
         }
         MatrixOperations mo = new MatrixOperations();
         try {
+            // write strassen in place of recursive if you want to use strassens algorithm
             Matrix m = mo.multiply(m1,m2,"recursive");
             System.out.println("Result :");
             m.printMatrix();
