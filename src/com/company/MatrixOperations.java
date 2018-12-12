@@ -2,6 +2,8 @@ package com.company;
 
 public class MatrixOperations {
 
+    //################################################################################################################//
+
     Matrix add(Matrix m1,Matrix m2) throws MatrixException {
         if(m1.row!=m2.row || m1.col!=m2.col){
             throw new MatrixException("rows and columns must be same");
@@ -9,11 +11,20 @@ public class MatrixOperations {
         Matrix c = new Matrix(m1.row,m1.col);
         for(int i=0;i<m1.row;i++){
             for(int j=0;j<m1.col;j++){
-                c.set(i,j,m1.get(i,j)+m2.get(i,j));
+                try {
+                    c.set(i,j,m1.get(i,j)+m2.get(i,j));
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+
             }
         }
         return c;
     }
+
+    //################################################################################################################//
+
+    //################################################################################################################//
 
     Matrix sub(Matrix m1,Matrix m2) throws MatrixException {
         if(m1.row!=m2.row || m1.col!=m2.col){
@@ -22,11 +33,19 @@ public class MatrixOperations {
         Matrix c = new Matrix(m1.row,m1.col);
         for(int i=0;i<m1.row;i++){
             for(int j=0;j<m1.col;j++){
-                c.set(i,j,m1.get(i,j)-m2.get(i,j));
+                try {
+                    c.set(i, j, m1.get(i, j) - m2.get(i, j));
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
             }
         }
         return c;
     }
+
+    //################################################################################################################//
+
+    //################################################################################################################//
 
     double a[][],b[][];
 
@@ -56,6 +75,10 @@ public class MatrixOperations {
             return c;
         }
     }
+
+    //################################################################################################################//
+
+    //################################################################################################################//
 
     double [][] multiplyRecursive(int x1,int y1,int x2,int y2,int n){
         if(n == 1){
@@ -107,6 +130,9 @@ public class MatrixOperations {
         return x;
     }
 
+    //################################################################################################################//
+
+    //################################################################################################################//
 
     double [][] multiplystrassen(double [][] x,double [][] y){
         if(x.length == 1){
@@ -282,6 +308,10 @@ public class MatrixOperations {
         }
         return a;
     }
+
+    //################################################################################################################//
+
+    //################################################################################################################//
 
     class MatrixException extends Exception{
         MatrixException(String message){
